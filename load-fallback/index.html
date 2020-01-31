@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <p>How load fallback scripts could be excluded</p>
+  <p> Order: default => defer & async </p>
+  <ol>
+    <li> `defer`: to exclude after dom fully loaded, safe to put anywhere </li>
+    <li> `async` & default: after fallback check, following the waterfall process </li>
+  </ol>
+  <script defer src="./js/log-14.30.js"></script>
+  <script async src="./js/log-25.js"></script>
+  <script type="text/javascript">
+    if ( IntersectionObserver ) { // lets say we need polyfill r.js as fallback
+      document.write( '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js"><\/script>' );
+      document.write( '<script type="text/javascript" src="./js/r.js"><\/script>' );
+    }
+  </script>
+  <!-- r.js will inject here before exclude any-->
+  <script defer src="./js/log-16.js"></script> <!-- the second defer will be excluded last-->
+  <script async src="./js/log-14.js"></script>
+  <script src="./js/log-12.js"></script>
+  <script async src="./js/log-14.35.js"></script>
+</body>
+</html>
+
