@@ -12,7 +12,7 @@
 <body>
   <p>How load fallback scripts could be excluded</p>
   <p>NOTE: <a href="https://github.com/gregberge/loadable-components/issues/258">Consider using the defer attribute instead of async for script tags </a> </p>
-  <p> Order: default => defer & async </p>
+  <p> Order after default script excluded: default then defer & async </p>
   <ol>
     <li> `defer`: to exclude after dom fully loaded, safe to put anywhere </li>
     <li> `async` & default: after fallback check, following the waterfall process </li>
