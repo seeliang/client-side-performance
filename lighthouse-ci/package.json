@@ -1,0 +1,13 @@
+{
+  "name": "lighthouse-ci",
+  "version": "1.0.0",
+  "description": "lighthouse ci sample",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@lhci/cli": "^0.3.8"
+  },
+  "scripts": {
+    "test:performance": "yarn lhci autorun --collect.url=http://localhost:10010"
+  }
+}
