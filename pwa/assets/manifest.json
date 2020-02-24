@@ -1,0 +1,10 @@
+{
+  "short_name": "Hellow",
+  "name": "World? is that you ?",
+  "description": "some information",
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "static/offline.html",
+  "theme_color": "#ffffff"
+}
