@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title><%= title %></title>
-  <link rel="stylesheet" href="static/main.css">
-  <link rel="manifest" href="static/manifest.json">
+  <link rel="stylesheet" href="main.css">
+  <link rel="manifest" href="manifest.json">
   <meta name="description" content="">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('static/service-worker.js')
+        navigator.serviceWorker.register('service-worker.js')
           .then((reg) => {
             console.log('Service worker registered.', reg);
           });

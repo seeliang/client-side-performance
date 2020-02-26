@@ -2,9 +2,9 @@
   "short_name": "Hellow",
   "name": "World? is that you ?",
   "description": "some information",
-  "start_url": "/static/index.html",
+  "start_url": "/index.html",
   "background_color": "#ffffff",
   "display": "standalone",
-  "scope": "static",
+  "scope": "/",
   "theme_color": "#ffffff"
 }

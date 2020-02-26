@@ -1,8 +1,8 @@
 const CACHE_NAME = 'offline-cache-v1.3'
 const FILES_TO_CACHE = [
   '/',
-  '/static/index.html',
-  '/static/main.css',
+  '/index.html',
+  '/main.css',
 ]
 
 self.addEventListener('install', (event) => {
