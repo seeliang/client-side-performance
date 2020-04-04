@@ -2,13 +2,15 @@
   "name": "performance",
   "version": "0.0.0",
   "scripts": {
-    "start": "yarn ng serve",
-    "build": "yarn ng build",
+    "start": "yarn ng serve ",
+    "build": "yarn ng build --prod",
     "test": "yarn ng test",
     "lint": "yarn ng lint",
     "e2e": "yarn ng e2e",
-    "stage": "yarn build && node server.js",
-    "analyse": "ng build --statsJson && webpack-bundle-analyzer dist/performance/stats-es2019.json"
+    "serve-build": "node server.js",
+    "stage": "yarn build && serve-build",
+    "analyse-build":"webpack-bundle-analyzer dist/performance/stats-es2019.json",
+    "analyse": "yarn build --statsJson && yarn analyse-build"
   },
   "private": true,
   "dependencies": {
