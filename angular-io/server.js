@@ -1,14 +1,23 @@
 const express = require('express');
 const path = require('path');
+var expressStaticGzip = require("express-static-gzip");
 
 const pathTo = {
   static: path.join(__dirname, 'dist/performance'),
 };
 const web = express();
 
-web.set('view engine', 'ejs');
 
 console.log(pathTo);
-web.use('/', express.static(pathTo.static));
+
+web.use('/', expressStaticGzip(pathTo.static, {
+  enableBrotli: true,
+  customCompressions: [{
+      encodingName: 'deflate',
+      fileExtension: 'zz'
+  }],
+  orderPreference: ['br']
+}));
+
 
 web.listen(8000, () => console.log('start at port localhost:8000'));
