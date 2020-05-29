@@ -20,7 +20,6 @@
             "outputPath": "dist/performance",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "customWebpackConfig": {
               "path": "webpack/prod.js"
@@ -30,7 +29,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "scripts": []
+            "scripts": [
+              { "input": "node_modules/zone.js/dist/zone.min.js", "inject": false, "bundleName": "zone.min" }
+            ]
           },
           "configurations": {
             "production": {
