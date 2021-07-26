@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
-  ngOnInit() {}
+  constructor() { 
+    this.massive = [];
+    for (let i = 0; i < 1000; i++) {
+      this.massive = [...this.massive, 'hit']
+    }
+  }
+  ngOnInit() {
+    console.log(this.massive)
+  }
+  ngOnDestroy() {
+    console.log('leave 404')
+  }
 }
