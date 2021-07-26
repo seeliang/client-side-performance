@@ -9,7 +9,7 @@ export class NotFoundComponent implements OnInit {
 
   constructor() { 
     this.massive = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 4000; i++) {
       this.massive = [...this.massive, 'hit']
     }
   }
