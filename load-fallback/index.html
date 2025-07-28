@@ -15,24 +15,27 @@
 </head>
 
 <body>
-  <p>How load fallback scripts could be excluded</p>
-  <p>NOTE: <a href="https://github.com/gregberge/loadable-components/issues/258">Consider using the defer attribute
-      instead of async for script tags </a> </p>
-  <p> Order after default script excluded: default then defer & async </p>
-  <ol>
-    <li> `defer`: to exclude after dom fully loaded, safe to put anywhere </li>
-    <li> `async` & default: after fallback check, following the waterfall process </li>
-  </ol>
+  <h2>Load Fallback Script Exclusion Demo</h2>
+  <p>This page demonstrates how fallback scripts can be excluded and the order in which scripts are loaded.</p>
+  <ul>
+    <li><strong>defer</strong>: Excluded after DOM is fully loaded. Safe to put anywhere.</li>
+    <li><strong>async</strong> &amp; <strong>default</strong>: Loaded after fallback check, following the waterfall
+      process.</li>
+  </ul>
+  <p>Reference: <a href="https://github.com/gregberge/loadable-components/issues/258" target="_blank">Consider using the
+      <code>defer</code> attribute instead of <code>async</code> for script tags</a>.</p>
+  <hr>
   <script defer src="./js/log-14.30.js"></script>
   <script async src="./js/log-25.js"></script>
   <script type="text/javascript">
-    if (IntersectionObserver) { // lets say we need polyfill r.js as fallback
+    // Example: Polyfill fallback using IntersectionObserver
+    if (window.IntersectionObserver) {
       document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js"><\/script>');
       document.write('<script type="text/javascript" src="./js/r.js"><\/script>');
     }
   </script>
-  <!-- r.js will inject here before exclude any-->
-  <script defer src="./js/log-16.js"></script> <!-- why the second defer will be excluded last-->
+  <!-- r.js will inject here before excluding any -->
+  <script defer src="./js/log-16.js"></script> <!-- Second defer script is excluded last -->
   <script async src="./js/log-14.js"></script>
   <script src="./js/log-12.js"></script>
   <script async src="./js/log-14.35.js"></script>
